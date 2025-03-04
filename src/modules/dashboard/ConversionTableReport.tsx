@@ -16,10 +16,7 @@ import { AlertTriangleIcon, CheckCircleIcon } from '@shopify/polaris-icons';
 import { useCallback, useMemo, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import styles from './ConversionHistory.module.scss';
-import {
-    EventStreamContentType,
-    fetchEventSource,
-} from '@microsoft/fetch-event-source';
+import { fetchEventSource } from '@microsoft/fetch-event-source';
 import { API_BASE_URL } from '@configs/env';
 import { useAppBridge } from '@shopify/app-bridge-react';
 import downloadjs from 'downloadjs';
@@ -65,13 +62,13 @@ export default function ConversionTableReport() {
             status: 'waiting',
         },
         {
-            key: 'compile_data_generate_report',
-            value: 'Compile Data & Generate Report',
+            key: 'get_domain_know_ledge_node',
+            value: 'Get Domain Knowledge',
             status: 'waiting',
         },
         {
-            key: 'suggest_shopify_apps_for_issue_resolution',
-            value: 'Suggest Shopify Apps for Issue Resolution',
+            key: 'compile_data_generate_report',
+            value: 'Compile Data & Generate Report',
             status: 'waiting',
         },
     ]);
@@ -82,111 +79,106 @@ export default function ConversionTableReport() {
             isAgent: true,
             type: 'message',
         },
-        {
-            data: 'I want to Audit Homepage',
-            isAgent: false,
-            type: 'message',
-        },
-        {
-            isAgent: true,
-            type: 'report',
-            data: {
-                report_executive_summary:
-                    'This audit evaluates the homepage of an online store focusing on elements crucial for conversion, such as the hero section, navigation, product highlights, and footer. Several opportunities for improvement have been identified, which could significantly enhance user engagement and trust, ultimately boosting conversion rates.',
-                elements: {
-                    general: {
-                        why_audit:
-                            'The general layout and presentation of the homepage significantly influence the initial impression, engagement, and conversion rates.',
-                        element_score: {
-                            clarity: 4,
-                            engagement: 3,
-                            trust: 3,
-                            usability: 4,
-                        },
-                        current_situation:
-                            'The homepage has a visually appealing hero section with a clear headline and prominent CTA, but lacks urgency signals.',
-                        key_issues: [
-                            'Hero section lacks urgency despite clear message',
-                            'Limited use of trust signals in the hero area',
-                            'Visuals do not strongly differentiate from competitors',
-                        ],
-                        recommendations: [
-                            "Add urgency signals such as 'Limited Time Only' to the hero section.",
-                            'Incorporate trust badges or customer ratings near the CTA.',
-                            'Use unique visuals that align with brand identity to stand out.',
-                        ],
-                        conversion_impact:
-                            'Enhancements in the hero section could improve engagement and click-through rates by 10-20%.',
-                    },
-                    navigation: {
-                        why_audit:
-                            'Effective navigation is critical to ensuring users can easily find products, enhancing user experience and conversion rates.',
-                        element_score: {
-                            clarity: 5,
-                            engagement: 4,
-                            trust: 4,
-                            usability: 5,
-                        },
-                        current_situation:
-                            'The navigation is clear and logical, with precise category labels and a sticky header for easy access.',
-                        key_issues: [
-                            'Lacks feedback on active navigation state',
-                            'No visible indication of a search function in navigation',
-                        ],
-                        recommendations: [
-                            'Add active state feedback to navigation elements.',
-                            'Ensure the search bar is prominently visible in the navigation.',
-                        ],
-                        conversion_impact:
-                            'Improved navigation can enhance user experience and reduce bounce rates, potentially increasing conversions by 5-15%.',
-                    },
-                    product_highlights: {
-                        why_audit:
-                            'Highlighting products effectively can captivate and convert visitors by showcasing value and driving purchase intent.',
-                        element_score: {
-                            clarity: 4,
-                            engagement: 3,
-                            trust: 3,
-                            usability: 4,
-                        },
-                        current_situation:
-                            'Product highlights are visually appealing with clear images and descriptions, but the copy lacks persuasive elements.',
-                        key_issues: [
-                            'Descriptions are factual but not persuasive',
-                            'Lack of social proof directly associated with product highlights',
-                        ],
-                        recommendations: [
-                            'Enhance product descriptions with persuasive language focused on benefits.',
-                            'Include customer reviews or star ratings with product highlights.',
-                        ],
-                        conversion_impact:
-                            'Optimizing product highlights can improve user engagement and increase sales by 10-20%.',
-                    },
-                    footer: {
-                        why_audit:
-                            'A footer consolidates essential information and trust signals, enhancing credibility and ease of navigation.',
-                        element_score: {
-                            clarity: 4,
-                            engagement: 3,
-                            trust: 5,
-                            usability: 4,
-                        },
-                        current_situation:
-                            'The footer contains crucial information like policy links and contact details but lacks strong visual elements to attract attention.',
-                        key_issues: [
-                            'No social media links or visual trust icons',
-                            'Back to Top feature is missing',
-                        ],
-                        recommendations: [
-                            'Add social media links with follower counts to enhance social proof.',
-                            "Include trust badges and a 'Back to Top' link for improved usability.",
-                        ],
-                        conversion_impact:
-                            'Enhancing the footer with social proof and navigation features can increase trust and encourage further exploration, boosting conversions by 5-10%.',
-                    },
-                },
-            },
-        },
+        // {
+        //     isAgent: true,
+        //     type: 'report',
+        //     data: {
+        //         report_executive_summary:
+        //             'This audit evaluates the homepage of an online store focusing on elements crucial for conversion, such as the hero section, navigation, product highlights, and footer. Several opportunities for improvement have been identified, which could significantly enhance user engagement and trust, ultimately boosting conversion rates.',
+        //         elements: {
+        //             general: {
+        //                 why_audit:
+        //                     'The general layout and presentation of the homepage significantly influence the initial impression, engagement, and conversion rates.',
+        //                 element_score: {
+        //                     clarity: 4,
+        //                     engagement: 3,
+        //                     trust: 3,
+        //                     usability: 4,
+        //                 },
+        //                 current_situation:
+        //                     'The homepage has a visually appealing hero section with a clear headline and prominent CTA, but lacks urgency signals.',
+        //                 key_issues: [
+        //                     'Hero section lacks urgency despite clear message',
+        //                     'Limited use of trust signals in the hero area',
+        //                     'Visuals do not strongly differentiate from competitors',
+        //                 ],
+        //                 recommendations: [
+        //                     "Add urgency signals such as 'Limited Time Only' to the hero section.",
+        //                     'Incorporate trust badges or customer ratings near the CTA.',
+        //                     'Use unique visuals that align with brand identity to stand out.',
+        //                 ],
+        //                 conversion_impact:
+        //                     'Enhancements in the hero section could improve engagement and click-through rates by 10-20%.',
+        //             },
+        //             navigation: {
+        //                 why_audit:
+        //                     'Effective navigation is critical to ensuring users can easily find products, enhancing user experience and conversion rates.',
+        //                 element_score: {
+        //                     clarity: 5,
+        //                     engagement: 4,
+        //                     trust: 4,
+        //                     usability: 5,
+        //                 },
+        //                 current_situation:
+        //                     'The navigation is clear and logical, with precise category labels and a sticky header for easy access.',
+        //                 key_issues: [
+        //                     'Lacks feedback on active navigation state',
+        //                     'No visible indication of a search function in navigation',
+        //                 ],
+        //                 recommendations: [
+        //                     'Add active state feedback to navigation elements.',
+        //                     'Ensure the search bar is prominently visible in the navigation.',
+        //                 ],
+        //                 conversion_impact:
+        //                     'Improved navigation can enhance user experience and reduce bounce rates, potentially increasing conversions by 5-15%.',
+        //             },
+        //             product_highlights: {
+        //                 why_audit:
+        //                     'Highlighting products effectively can captivate and convert visitors by showcasing value and driving purchase intent.',
+        //                 element_score: {
+        //                     clarity: 4,
+        //                     engagement: 3,
+        //                     trust: 3,
+        //                     usability: 4,
+        //                 },
+        //                 current_situation:
+        //                     'Product highlights are visually appealing with clear images and descriptions, but the copy lacks persuasive elements.',
+        //                 key_issues: [
+        //                     'Descriptions are factual but not persuasive',
+        //                     'Lack of social proof directly associated with product highlights',
+        //                 ],
+        //                 recommendations: [
+        //                     'Enhance product descriptions with persuasive language focused on benefits.',
+        //                     'Include customer reviews or star ratings with product highlights.',
+        //                 ],
+        //                 conversion_impact:
+        //                     'Optimizing product highlights can improve user engagement and increase sales by 10-20%.',
+        //             },
+        //             footer: {
+        //                 why_audit:
+        //                     'A footer consolidates essential information and trust signals, enhancing credibility and ease of navigation.',
+        //                 element_score: {
+        //                     clarity: 4,
+        //                     engagement: 3,
+        //                     trust: 5,
+        //                     usability: 4,
+        //                 },
+        //                 current_situation:
+        //                     'The footer contains crucial information like policy links and contact details but lacks strong visual elements to attract attention.',
+        //                 key_issues: [
+        //                     'No social media links or visual trust icons',
+        //                     'Back to Top feature is missing',
+        //                 ],
+        //                 recommendations: [
+        //                     'Add social media links with follower counts to enhance social proof.',
+        //                     "Include trust badges and a 'Back to Top' link for improved usability.",
+        //                 ],
+        //                 conversion_impact:
+        //                     'Enhancing the footer with social proof and navigation features can increase trust and encourage further exploration, boosting conversions by 5-10%.',
+        //             },
+        //         },
+        //     },
+        // },
         {
             isAgent: true,
             type: 'suggestions',
@@ -202,10 +194,7 @@ export default function ConversionTableReport() {
     );
     const isAudited = useMemo(() => {
         return messages.some(
-            (message) =>
-                message.data === 'I want to Audit Homepage' ||
-                message.data === 'I want to Audit Product Page' ||
-                message.data === 'I want to Audit Collection Page'
+            (message) => message.type === 'report' && message.isAgent
         );
     }, [messages]);
 
@@ -269,17 +258,25 @@ export default function ConversionTableReport() {
                 onmessage(ev) {
                     console.log(ev);
                     if (ev.data) {
-                        const data = JSON.parse(ev.data) as Step;
+                        const data = JSON.parse(ev.data) as {
+                            data: Record<string, any>;
+                            node_name: string;
+                            sent_by: string;
+                            show: boolean;
+                            status: string;
+                        };
                         console.log(data);
                         const stepIndex = steps.findIndex(
-                            (step) => step.key === data.key
+                            (step) => step.key === data.node_name
                         );
                         setSteps((prevSteps) => {
                             return prevSteps.map((step, index) => {
                                 if (index === stepIndex) {
                                     return {
                                         ...step,
-                                        status: data.status,
+                                        status: data.show
+                                            ? 'success'
+                                            : step.status,
                                     };
                                 }
                                 if (index === stepIndex + 1) {
@@ -292,9 +289,9 @@ export default function ConversionTableReport() {
                             });
                         });
                         if (
-                            data.key ===
-                                'suggest_shopify_apps_for_issue_resolution' &&
-                            data.status === 'success'
+                            data.node_name === 'compile_data_generate_report' &&
+                            data.status === 'success' &&
+                            data.show
                         ) {
                             handleCancelStream();
                             setMessages((prevMessages) => {
@@ -302,8 +299,8 @@ export default function ConversionTableReport() {
                                     ...prevMessages,
                                     {
                                         isAgent: true,
-                                        type: 'message',
-                                        data: 'Here are some suggestions for you',
+                                        type: 'report',
+                                        data: data.data,
                                     },
                                 ];
                             });
@@ -421,6 +418,7 @@ export default function ConversionTableReport() {
                                         if (message.type === 'report') {
                                             return (
                                                 <MessageReport
+                                                    key={index}
                                                     data={message.data}
                                                 />
                                             );
@@ -459,7 +457,7 @@ export default function ConversionTableReport() {
                                     })}
                                 </div>
                                 <Box width="100%">
-                                    {
+                                    {isAudited && (
                                         <Form onSubmit={handleSubmit}>
                                             <TextField
                                                 label={false}
@@ -469,7 +467,7 @@ export default function ConversionTableReport() {
                                                 onChange={handleChange}
                                             ></TextField>
                                         </Form>
-                                    }
+                                    )}
                                 </Box>
                             </div>
                         </BlockStack>
