@@ -1,0 +1,24 @@
+.Wrapper{
+    display: flex;
+    flex-direction: column;
+    max-height: 80vh;
+    min-height: 80vh;
+    width: 100%;
+}
+
+.Group{
+  flex: 1;
+  overflow: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.MessageWrapper{
+  display: flex;
+}
+
+.Message{
+  padding: 4px 8px;
+  border-radius: 8px;
+}

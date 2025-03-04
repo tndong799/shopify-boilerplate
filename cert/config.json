@@ -1,0 +1,15 @@
+{
+  "record": {
+    "hosts": [
+      "localhost",
+      "192.168.6.23",
+      "127.0.0.1",
+      "content-agent-dev.promerlabs.com"
+    ],
+    "hash": {
+      "key": "f802aafd4847eb3f8daee8521a3029fa94ce44f2458888686d8b3e6ea2ec1852",
+      "cert": "d718433fd3063b2f8c2de5ee05bc70b10dc1a00c601cfaf051d2ded6917e65fb"
+    }
+  },
+  "configFilePath": "C:\\Users\\dongtn1\\Desktop\\promer-fe-shopify-boilerplate-2\\cert\\config.json"
+}

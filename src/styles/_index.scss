@@ -1,0 +1,130 @@
+
+.flex {
+  display: flex;
+}
+
+.flex-col {
+  flex-direction: column;
+}
+
+.flex-row {
+  flex-direction: row;
+}
+
+.justify-start {
+  justify-content: flex-start;
+}
+
+.justify-end {
+  justify-content: flex-end;
+}
+
+.flex-1{
+  flex: 0 0 100%;
+}
+
+.h-screen {
+  height: 100vh;
+}
+
+.w-screen {
+  width: 100vw;
+}
+
+.max-h-screen{
+  max-height: 100vh;
+}
+
+.w-full {
+  width: 100%;
+}
+
+.h-full {
+  height: 100%;
+}
+
+.overflow-hidden {
+  overflow: hidden;
+}
+
+.overflow-auto {
+  overflow: auto;
+}
+
+.overflow-scroll {
+  overflow: scroll;
+}
+
+.overflow-visible {
+  overflow: visible;
+}
+
+html,body {
+  scrollbar-color: unset!important;
+}
+
+html ::-webkit-scrollbar,body ::-webkit-scrollbar {
+  width: 5px;
+  height: 1px
+}
+
+html ::-webkit-scrollbar-track,body ::-webkit-scrollbar-track {
+  background: var(--p-background);
+  border-radius: 10px
+}
+
+html ::-webkit-scrollbar-thumb,body ::-webkit-scrollbar-thumb {
+  background: #ccc;
+  border-radius: 10px
+}
+
+html ::-webkit-scrollbar-thumb:hover,body ::-webkit-scrollbar-thumb:hover {
+  background: #888
+}
+
+@for $i from 0 through 50 {
+  .w-#{$i}{
+    width: calc(4px * #{$i});
+  }
+
+  .h-#{$i}{
+    width: calc(4px * #{$i});
+  }
+
+  .p-#{$i}{
+    padding: calc(4px * #{$i});
+  }
+  .pl-#{$i}{
+    padding-left: calc(4px * #{$i});
+  }
+
+  .pr-#{$i}{
+    padding-right: calc(4px * #{$i});
+  }
+
+  .size-#{$i} {
+    width: calc(4px * #{$i});
+    height: calc(4px * #{$i});
+  }
+
+  .rounded-#{$i} {
+    border-radius: calc(2px * #{$i});
+  }
+}
+
+.rounded-full {
+  border-radius: 9999px;
+}
+
+.animate-spin {
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
